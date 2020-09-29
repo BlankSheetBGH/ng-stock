@@ -118,8 +118,17 @@
               "devServerTarget": "my-stock:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/my-stock",
+            "netlifyToken": "hsBCPXFucqVHnIl4a4HpxdHlfqQYICgvOMhduEpbBpA",
+            "siteId": "eb37955e-669c-4076-90af-28b2d8a0d4aa"
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "my-stock"
 }
