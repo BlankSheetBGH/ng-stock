@@ -2,17 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
+  private api = 'https://api.covidtracking.com/v1/states/{0}/current.json';
 
-  private api = 'https://query1.finance.yahoo.com/v8/finance/chart/{0}?region=US&lang=en-US&includePrePost=false&interval=2m&range=1d&.tsrc=finance';
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) { }
-
-  public getStockInformation(ticker){
+  public getStateInformation(ticker) {
     let api = this.api.replace('{0}', ticker);
-    
+
     return this.httpClient.get(api);
-}
+  }
 }

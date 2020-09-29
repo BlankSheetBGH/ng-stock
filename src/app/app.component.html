@@ -10,19 +10,20 @@
 <app-header></app-header>
 <div class="container">
   <h3>Home</h3>
-  <hr>
+  <hr />
   <div class="stocks-div">
-    <div *ngFor="let stock of stocks">
-        <div class="stock-div" (click)="stockClicked(stock.symbol)">
-            <span class="symbol">{{ stock.symbol }}</span>
-            <span class="company-name">({{ stock.name }})</span>
-        </div>
+    <div *ngFor="let state of states">
+      <div class="stock-div" (click)="stateClicked(state)">
+        <span class="symbol">{{ state.symbol }}</span>
+        <span class="company-name">({{ state.name }})</span>
+      </div>
     </div>
   </div>
   <div class="ticker-info-div">
-      <app-ticker-info 
-          [ticker]="selectedStock" 
-          *ngIf="selectedStock !== ''"></app-ticker-info>
+    <app-ticker-info
+      [ticker]="selectedState"
+      *ngIf="selectedState !== ''"
+    ></app-ticker-info>
   </div>
 </div>
 
@@ -33,7 +34,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
 
 <router-outlet></router-outlet>
